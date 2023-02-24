@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const passport = require("passport");
+REACT_CLIENT_URL = "http://localhost:3000"
 
 router.get("/login/success", (req, res) => {
 	if (req.user) {
@@ -25,14 +26,14 @@ router.get("/google", passport.authenticate("google", ["profile", "email"]));
 router.get(
 	"/google/callback",
 	passport.authenticate("google", {
-		successRedirect: process.env.CLIENT_URL,
+		successRedirect: REACT_CLIENT_URL,
 		failureRedirect: "/login/failed",
 	})
 );
 
 router.get("/logout", (req, res) => {
 	req.logout();
-	res.redirect(process.env.CLIENT_URL);
+	res.redirect(REACT_CLIENT_URL);
 });
 
 module.exports = router;

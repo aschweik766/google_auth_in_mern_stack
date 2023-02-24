@@ -1,10 +1,10 @@
-require("dotenv").config();
+const dot = require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
 const cookieSession = require("cookie-session");
-const passportStrategy = require("./passport");
+const passportStrategy = require("./passport.js");
 const app = express();
 
 app.use(
@@ -28,5 +28,5 @@ app.use(
 
 app.use("/auth", authRoute);
 
-const port = process.env.PORT || 8080;
+const port = 3001
 app.listen(port, () => console.log(`Listenting on port ${port}...`));

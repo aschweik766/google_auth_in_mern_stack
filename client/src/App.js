@@ -6,12 +6,13 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import "./App.css";
 
+const REACT_APP_API_URL = "http://localhost:3001"
 function App() {
 	const [user, setUser] = useState(null);
 
 	const getUser = async () => {
 		try {
-			const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
+			const url = `${REACT_APP_API_URL}/auth/login/success`;
 			const { data } = await axios.get(url, { withCredentials: true });
 			setUser(data.user._json);
 		} catch (err) {

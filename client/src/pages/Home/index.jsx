@@ -1,9 +1,10 @@
 import styles from "./styles.module.css";
+const REACT_APP_API_URL = "http://localhost:3001"
 
 function Home(userDetails) {
 	const user = userDetails.user;
 	const logout = () => {
-		window.open(`${process.env.REACT_APP_API_URL}/auth/logout`, "_self");
+		window.open(`${REACT_APP_API_URL}/auth/logout`, "_self");
 	};
 	return (
 		<div className={styles.container}>
